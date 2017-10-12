@@ -1,6 +1,7 @@
 
 var calculadora = {
 
+	teclas: document.getElementsByTagName("img"),
 	on : document.getElementById("on"),
 	signo : document.getElementById("sign"),
 	display : document.getElementById("display"),
@@ -24,6 +25,21 @@ var calculadora = {
 	dividido: document.getElementById("dividido"),
 
 	inicializar: function () {
+
+		var teclas=calculadora.teclas;
+
+		for (var i = 0; i < teclas.length; i++) {
+			teclas[i].addEventListener("mousedown", function() {
+			reducir(i);
+			});
+			teclas[i].addEventListener("mousedown", function() {
+			aumentar(i);
+			});
+		}
+
+
+
+
 		calculadora.cero.addEventListener("click", function() {
 		mostrarNumero(calculadora.cero.alt);
 		});
@@ -173,7 +189,7 @@ var calculadora = {
 				var res = resultado.toPrecision(8);
 				pantalla.innerHTML = res;
 			}
-			
+			iniciar=true;
 		};
 		function enCero() {
 			pantalla.innerHTML = "0";
@@ -188,7 +204,18 @@ var calculadora = {
 		};
 
 		function cambiarSigno() {
-			// body...
+			 var nx=Number(numero); 
+	         nx=-nx; 
+	         numero=String(nx); 
+	         pantalla.innerHTML=numero; 
+			
+		}
+
+		function aumentar(t) {
+			calculadora.teclas[t].style.padding = "0px 0px 0px 0px";
+		}
+		function disminuir(t) {
+			calculadora.teclas[t].style.padding = "5px 5px 5px 5px";
 		}
 	}
 }
