@@ -150,10 +150,10 @@ var calculadora = {
 		operar("+");
 		});
 		calculadora.mas.addEventListener("mouseup", function() {
-		aumentar(calculadora.mas);
+		aumentarmas(calculadora.mas);
 		});
 		calculadora.mas.addEventListener("mousedown", function() {
-		disminuir(calculadora.mas);
+		disminuirmas(calculadora.mas);
 		});
 
 		calculadora.menos.addEventListener("click", function() {
@@ -401,7 +401,13 @@ var calculadora = {
 			t.style.padding = "0px 0px 0px 0px";
 		}
 		function disminuir(t) {
-			t.style.padding = "7px 6px 0px 5px";
+			t.style.padding = "7px 6px 2px 5px";
+		}
+		function aumentarmas(t) {
+			t.style.padding = "0px 0px 0px 0px";
+		}
+		function disminuirmas(t) {
+			t.style.padding = "2px 2px 2px 2px";
 		}
 	}
 }
